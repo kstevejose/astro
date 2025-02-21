@@ -2,6 +2,7 @@
 import background from "../assets/background.svg";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
@@ -12,8 +13,14 @@ import Navbar from "../components/Navbar.astro";
     <link rel="icon" type="image/webp" href="/logo.webp" />
     <meta name="generator" content={Astro.generator} />
     <title>PortfolioDemo1</title>
+
+    <!-- Metas -->
+    <meta
+      name="description"
+      content="A small minimalist web developer portfolio built with Astro and TailwindCSS"
+    />
   </head>
-  <body class="dark:bg-neutral-950">
+  <body class="dark:bg-gray-950">
     <img
       class="fixed top-0 left-0 size-full -z-10 blur-2xl"
       src={background.src}
@@ -26,9 +33,9 @@ import Navbar from "../components/Navbar.astro";
     </main>
     <Footer />
   </body>
+  <style is:global>
+    * {
+      scroll-behavior: smooth;
+    }
+  </style>
 </html>
-<style is:global>
-  * {
-    scroll-behavior: smooth;
-  }
-</style>

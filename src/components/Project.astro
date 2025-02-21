@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 interface Project {
   name: string;
   description: string;
@@ -16,21 +18,25 @@ const { name, description, urlImg, link } = Astro.props.project;
 <a
   href={link}
   target="_blank"
-  class="relative flex flex-col items-stretch duration-300 ease-out p-3 group h-100 rounded-2xl bg-white dark:bg-gray-950/30"
+  class="relative flex flex-col items-stretch duration-300 ease-out p-3 group h-fit rounded-md bg-white dark:bg-gray-950/30 w-full lg:max-w-82"
 >
   <span
-    class="absolute inset-0 z-20 block size-full duration-300 ease-out bg-transparent border border-transparent border-dashed group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:border group-hover:border-gray-300 dark:group-hover:border-gray-600 group-hover:border-dashed rounded-2xl group-hover:bg-white dark:group-hover:bg-gray-950/30"
+    class="absolute inset-0 z-20 block size-full duration-300 ease-out bg-transparent border border-transparent group-hover:-translate-x-1 group-hover:-translate-y-1 group-hover:border group-hover:border-gray-300 dark:group-hover:border-neutral-800 rounded-md group-hover:bg-white dark:group-hover:bg-gray-950/30"
   ></span>
   <span
-    class="absolute inset-0 z-10 block w-full h-full duration-300 ease-out border border-dashed rounded-2xl border-gray-300 dark:border-gray-600 group-hover:translate-x-1 group-hover:translate-y-1"
+    class="absolute inset-0 z-10 block w-full h-full duration-300 ease-out border rounded-md border-gray-300 dark:border-neutral-800 group-hover:translate-x-1 group-hover:translate-y-1"
   ></span>
   <span
     class="relative z-30 block duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1"
   >
     <span class="block w-full">
-      <img
+      <Image
+        loading={Astro.originPathname == "/" ? "lazy" : "eager"}
         src={urlImg}
-        class="w-full h-auto rounded-lg object-center object-cover"
+        class="w-full max-h-72 rounded-lg object-center object-cover"
+        alt={name}
+        width={200}
+        height={200}
       />
     </span>
     <span class="block w-full px-1 mt-5 mb-1 sm:mt-3">
