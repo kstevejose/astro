@@ -1,6 +1,6 @@
 import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel/server"; // Ensure it's "server"
+import vercel from "@astrojs/vercel"; // Ensure it's "server"
 
 export default defineConfig({
   vite: {
