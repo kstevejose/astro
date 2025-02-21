@@ -1,6 +1,6 @@
 import { defineConfig, envField } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import vercel from "@astrojs/vercel";
+import vercel from "@astrojs/vercel/server"; // Ensure it's "server"
 
 export default defineConfig({
   vite: {
@@ -12,6 +12,6 @@ export default defineConfig({
       MY_EMAIL: envField.string({ context: "server", access: "secret" }),
     },
   },
-  output: "server",
+  output: "server", // Vercel supports server-side rendering
   adapter: vercel(),
 });
